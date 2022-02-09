@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Books</h1>
+
+<% if user_signed_in? %>
+  <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+<% end %>
+
+
+<div id="books">
+  <% @books.each do |book| %>
+    <%= render book %>
+    <p>
+      <%= link_to "Show this book", book %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New book", new_book_path %>
